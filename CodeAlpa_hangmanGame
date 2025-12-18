@@ -1,0 +1,61 @@
+🎮 Hangman Game (Python)
+
+This project is a console-based Hangman game developed using Python. The game randomly selects a word from a small predefined list, and the player must guess the word one letter at a time.
+The player is given 6 incorrect attempts to guess the word correctly. For each guess, the program checks whether the letter exists in the secret word. Correct guesses reveal the letter’s position in the word, while incorrect guesses reduce the remaining attempts. The game continues until the player either successfully guesses the entire word or runs out of attempts.
+This project is designed for beginners to practice core Python concepts such as loops, conditional statements, lists, strings, user input handling, and the random module. It is a simple yet effective way to understand game logic and control flow in Python.
+
+Code:
+import random
+
+# List of predefined words
+words = ["apple", "python", "cloud", "happy", "world"]
+
+# Choose a random word
+secret_word = random.choice(words)
+guessed_letters = []
+attempts = 6
+
+print("🎮 Welcome to Hangman Game!")
+print("Guess the word letter by letter.")
+
+# Game loop
+while attempts > 0:
+    # Display current progress
+    display_word = ""
+    for letter in secret_word:
+        if letter in guessed_letters:
+            display_word += letter + " "
+        else:
+            display_word += "_ "
+    print("\nWord:", display_word.strip())
+
+    # Check if the player has won
+    if "_" not in display_word:
+        print("🎉 Congratulations! You guessed the word:", secret_word)
+        break
+
+    # Take user input
+    guess = input("Enter a letter: ").lower()
+
+    # Validate input
+    if len(guess) != 1 or not guess.isalpha():
+        print("❌ Please enter a single valid letter.")
+        continue
+
+    if guess in guessed_letters:
+        print("⚠️ You already guessed that letter.")
+        continue
+
+    guessed_letters.append(guess)
+
+    # Check if guess is correct
+    if guess in secret_word:
+        print("✅ Good guess!")
+    else:
+        attempts -= 1
+        print("❌ Wrong guess! Attempts left:", attempts)
+
+# If attempts are over
+if attempts == 0:
+    print("\n💀 Game Over! The word was:", secret_word)
+
