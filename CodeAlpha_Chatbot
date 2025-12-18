@@ -1,0 +1,38 @@
+🤖 Basic Chatbot (Python)
+
+A simple rule-based chatbot built using Python.
+It responds to basic user inputs like hello, how are you, and bye.
+
+🔧 Concepts Used
+if–elif conditions
+loops
+functions
+input/output
+
+▶️ Run
+python chatbot.py
+
+💬 Example
+You: hello
+Bot: Hi!
+You: bye
+Bot: Goodbye!
+
+Code:
+def chatbot():
+    print("🤖 Chatbot: Hello! Type 'bye' to exit.")
+
+    while True:
+        user_input = input("You: ").lower()
+
+        if user_input == "hello":
+            print("🤖 Chatbot: Hi!")
+        elif user_input == "how are you":
+            print("🤖 Chatbot: I'm fine, thanks!")
+        elif user_input == "bye":
+            print("🤖 Chatbot: Goodbye!")
+            break
+        else:
+            print("🤖 Chatbot: Sorry, I don't understand.")
+
+chatbot()
