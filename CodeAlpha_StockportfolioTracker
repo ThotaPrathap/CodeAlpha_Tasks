@@ -1,0 +1,39 @@
+📊 Stock Portfolio Tracker – 
+-A Stock Portfolio Tracker is a simple program used to calculate the total value of investments.
+-The user enters stock names and quantities.
+-Stock prices are stored in a hardcoded dictionary.
+-The program multiplies price × quantity for each stock.
+-All stock values are added to get the total investment.
+-It uses basic Python concepts like dictionary, input/output, and arithmetic operations.
+-The result can be displayed on the screen and optionally saved to a file (.txt or .csv).
+-This project helps beginners understand real-world use of Python.
+
+Code:
+# Hardcoded stock prices
+stock_prices = {
+    "DELL"  : 200
+    "CHROME": 350
+    "DRIVE" : 140
+    "IRTC"  : 430  
+}
+
+total_investment = 0
+
+print("📈 Stock Portfolio Tracker")
+
+while True:
+    stock = input("Enter stock name (or 'done' to finish): ").upper()
+
+    if stock == "DONE":
+        break
+
+    if stock in stock_prices:
+        quantity = int(input("Enter quantity: "))
+        price = stock_prices[stock]
+        investment = price * quantity
+        total_investment += investment
+        print(f"Added {stock}: ₹{investment}")
+    else:
+        print("Stock not found!")
+
+print("\n💰 Total Investment Value: ₹", total_investment)
